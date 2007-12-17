@@ -11,7 +11,6 @@ Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/CGI/%{real_name}-%{versio
 BuildRequires:	perl-devel
 BuildRequires:  perl(CGI)
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Convert .-delimited CGI parameters to Perl classes/objects.
