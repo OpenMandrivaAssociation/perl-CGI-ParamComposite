@@ -1,23 +1,25 @@
-%define real_name CGI-ParamComposite
+%define upstream_name    CGI-ParamComposite
+%define upstream_version 0.02
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary:	CGI-ParamComposite module for perl 
-Name:		perl-%{real_name}
-Version:	0.02
-Release: %mkrel 5
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{real_name}
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/CGI/%{real_name}-%{version}.tar.bz2
-BuildRequires:	perl-devel
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/CGI/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildRequires:  perl(CGI)
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Convert .-delimited CGI parameters to Perl classes/objects.
 
 %prep
-%setup -q -n %{real_name}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -36,7 +38,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/CGI/ParamComposite.pm
 %{_mandir}/*/*
-
-
-
-
